@@ -1,0 +1,455 @@
+{% extends "layout/layout.html" %}
+{% load custom_tags %}
+{% load static %}
+
+{% block body %}
+    <!-- Carousel Start -->
+    
+      
+    {% for caurosel in caurosels  %}
+    
+    
+    
+    <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            
+            <div class="owl-carousel-item position-relative">
+                
+                <img class="img-fluid" src="{{ caurosel.picture.url }}" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">{{ caurosel.title }}</h5>
+                                <h1 class="display-3 text-white animated slideInDown">{{ caurosel.heading }}</h1>
+                                <p class="fs-5 text-white mb-4 pb-2">{{ caurosel.description }} <span class="fw-bold">ফ্রি</span> </p>
+                                <a href="#why_learn" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">ক্লিক করুন</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+            
+            {% for caurosel2 in caurosels2  %}
+
+            
+            <div class="owl-carousel-item position-relative">
+                <!-- <img class="img-fluid" src="{% static 'img/iffel.jpg' %}" alt=""> -->
+                <img class="img-fluid" src="{{ caurosel2.picture.url }}" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-9">
+                                <!-- <h5 class="text-primary text-uppercase mb-3 animated slideInDown">apprendre la langue Française</h5> -->
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">{{ caurosel2.title }}</h5>
+                                <!-- <h1 class="display-3 text-white animated slideInDown">Apprenons le français en ligne</h1> -->
+                                <h1 class="display-3 text-white animated slideInDown">{{ caurosel2.heading }}</h1>
+                                <!-- <p class="fs-5 text-white mb-4 pb-2">যারা ফরাসি ভাষা শিখতে আগ্রহী তাদের জন্য আমরা নিয়ে এসেছি একগুচ্ছ লেসন যা আপনাদের ভাষা শিখতে সাহায্য করবে। তাই আমরা আপনাদের জন্য ফরাসি ভাষা শিখার ভিডিও লেসন তৈরী করেছি যা সম্পুর্ণ <span class="fw-bold">ফ্রি</span> </p> -->
+                                <p class="fs-5 text-white mb-4 pb-2">{{ caurosel2.description }} <span class="fw-bold">ফ্রি</span> </p>
+                                <a href="#why_learn" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">CLICK HERE</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- Carousel End -->
+
+
+    <!-- Service Start -->
+    
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                            {% if request.user.is_authenticated %}
+                            <a class="mb-3" href="{% url 'teacher' %}"><h5>প্রশিক্ষক নিয়োগ</h5></a>
+                            {% else %}
+                            <a class="mb-3" href="{% url 'login' %}"><h5>প্রশিক্ষক নিয়োগ</h5></a>
+                            {% endif %}
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            {% if request.user.is_authenticated %}
+                            <a class="mb-3" href="{% url 'exam' %}"><h5>অনলাইন পরিক্ষা</h5></a>
+                            {% else %}
+                            <a class="mb-3" href="{% url 'login' %}"><h5>অনলাইন পরিক্ষা</h5></a>
+                            {% endif %}
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-video text-primary mb-4"></i>
+                            {% if request.user.is_authenticated %}
+                            <a class="mb-3" href="{% url 'live_class' %}"><h5>Live Class</h5></a>
+                            {% else %}
+                            <a class="mb-3" href="{% url 'login' %}"><h5>Live Class</h5></a>
+                            {% endif %}
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                            {% if request.user.is_authenticated %}
+                            <a class="mb-3" href="{% url 'library' %}"><h5>লাইব্রেরি</h5></a>
+                            {% else %}
+                            <a class="mb-3" href="{% url 'login' %}"><h5>লাইব্রেরি</h5></a>
+                            {% endif %}
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service End -->
+
+
+    <!-- About Start -->
+    
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/aboutus.jpg' %}" alt="" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="section-title bg-white text-start text-primary pe-3">পরিচিতি</h6>
+                    <h1 class="mb-4">স্বাগতম</h1>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>অভিজ্ঞ প্রশিক্ষক</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>ফ্রি ক্লাশ</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Free classes</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>অনলাইন ক্লাশ</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online class</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'about' %}">আরো দেখুন</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Categories Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+                <h1 class="mb-5">কি কি থাকছে</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/new2.jpg' %}" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="{% url 'vida1' %}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 30px 30px 30px;">কোর্স কন্টেন্ট দেখুন</a>
+                                
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            
+                            
+                            <h5 class="mb-4">ফরাসি এর প্রয়োজনীয় ধ্বনিতত্ত্ব</h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/new2.jpg' %}" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="{% url 'vida1' %}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 30px 30px 30px;">কোর্স কন্টেন্ট দেখুন</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            
+                            
+                            <h5 class="mb-4">অপরিহার্য ফরাসি ব্যাকরণ</h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/new2.jpg' %}" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="{% url 'vida1' %}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 30px 30px 30px;">কোর্স কন্টেন্ট দেখুন</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            
+                            
+                            <h5 class="mb-4">তাৎক্ষনিক ফরাসি শিখুন</h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/new2.jpg' %}" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="{% url 'vida1' %}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 30px 30px 30px;">কোর্স কন্টেন্ট দেখুন</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            
+                            
+                            <h5 class="mb-4">মৌখিক বোধগম্যতা</h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/new2.jpg' %}" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="{% url 'vida1' %}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 30px 30px 30px;">কোর্স কন্টেন্ট দেখুন</a>
+                                
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            
+                          
+                            <h5 class="mb-4">লেখার বোধগম্যতা</h5>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/new2.jpg' %}" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="{% url 'vida1' %}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 30px 30px 30px;">কোর্স কন্টেন্ট দেখুন</a>
+                                
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            
+                          
+                            <h5 class="mb-4">লিখিত প্রযোজনা</h5>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Categories Start -->
+
+
+    <!-- Courses Start -->
+    <div class="container-xxl py-5">
+        
+        <div class="container">
+            
+
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+                <h1 class="mb-5">আমাদের কোর্স সমূহ</h1>
+            </div>
+
+            
+
+            <div class="row g-4 justify-content-center">
+                {% for item in courses %}
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{{ item.thumbnail.url }}" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="/enroll/{{ item.slug }}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 30px 30px 30px;">Enroll now</a>
+                                &nbsp;
+                                <a href="/courses/{{ item.slug }}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 30px 30px 30px;">See More</a>
+                                
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">{{ item.name }}</h3>
+                            &nbsp;
+                            <h5 class="mb-0">Save:{{ item.discount }}%</h5>
+                            &nbsp;
+                            <h4 class="mb-0"><del>{{ item.price|taka }}</del> {% calculate_price item.price item.discount as value %} {{ value|taka }}</h4>
+                            
+                            <h3 class="mb-0"></h3>
+                            
+                            
+                        </div>
+                        
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Rozana Alam</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{ item.length }}</small>
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+               
+            </div>
+            
+        </div>
+        
+    </div>
+    <!-- Courses End -->
+
+
+    <!-- Team Start -->
+    <div id="instructor" class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6  class="section-title bg-white text-center text-primary px-3">Instructors</h6>
+                <h1  class="mb-5">অভিজ্ঞ প্রশিক্ষকগণ</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/person.jpg' %}" alt="">
+                        </div>
+                        <!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                             <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                 <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div> 
+                        </div> -->
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/person.jpg' %}" alt="">
+                        </div>
+                        <!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div> -->
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/person.jpg' %}" alt="">
+                        </div>
+                        <!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div> -->
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-4.jpg' %}" alt="">
+                        </div> -->
+                        <!-- <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div> -->
+                        <!-- <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <div id="why_learn" class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">যে কারনে ফরাসি ভাষা শিখবো</h6>
+
+                <h5 class="mb-5">আপনি যদি শিক্ষার্থী হয়ে থাকেন এবং উচ্চশিক্ষার জন্য দেশের বাইরে যেতে চান তাহলে ফরাসি ভাষা আপনার জন্য সবচেয়ে বেশি সহায়ক হবে। কারন ফরাসি ভাষা আপনাকে ফরাসি বিশ্ববিদ্যালয় সহ ইউরোপের অনেক খ্যাতনামা বিশ্ববিদ্যালয়ে ভর্তির ক্ষেত্রে অন্যদের তুলনায় অনেক বেশি সুবিধাজনক অবস্থানে রাখবে। বর্তমানে পৃথিবীর সকল বিশ্ববিদ্যালয়ের যে র‍্যাংকিং বা তালিকা প্রকাশ করা হয় সেখানে ফরাসি বিশ্ববিদ্যালয়গুলো ভালো অবস্থানে উঠে আসছে।</h5>
+            </div>
+
+            <h5 class="mb-5">আন্তর্জাতিক চাকরির বাজারে ফরাসি ভাষা আপনার চাকরি পাওয়ার ক্ষেত্রে এক নতুন মাত্রা যোগ করবে। কারন বিভিন্ন আর্ন্তজাতিক প্রতিষ্ঠান যেমনঃ UN, UNESCO, UNICEF, WHO, EU, NATO, RED CROSS তাদের অফিশিয়াল এবং প্রশাসনিক ভাষা হিসেবে ফরাসি ভাষা ব্যবহার করে থাকে। আপনি যদি ফরাসি ভাষায় দক্ষ হয়ে থাকেন তাহলে খুব সহজেই এই প্রতিষ্ঠানগুলোতে নিজের জায়গা তৈরী করে নিতে পারবেন।</h5>
+
+            <h5 class="mb-5">ফরাসি ভাষার সাথে পৃথিবীর সংস্কৃতি ওতপ্রোত ভাবে জড়িত। অভিজাত ফ্যাশান, রান্না, খাবার, থিয়েটার, শিল্পকর্ম কিংবা ভাস্কর্য সবকিছুতেই রয়েছে ফরাসি ভাষার ব্যবহার। কারন এগুলো আন্তর্জাতিক ভাষা হল ফরাসি ভাষা। আপনি যদি পৃথিবীর প্রাচীন শিল্পকর্ম, ইতিহাস, ঐতিহ্য কিংবা সংগ্রামের গল্প গুলো অনেক গভীরভাবে জানতে হয় তাহলে আপনাকে পড়তে হবে ফরাসি ইতিহাস যা ফরাসি ভাষায় রচিত।</h5>
+
+            <h5 class="mb-5"> আমাদের মধ্যে পুরো পৃথিবীকে ঘুরে দেখার ইচ্ছা নেই এমন ভ্রমন পিপাসু মানুষ খুব কমই আছে। এই ভ্রমন পিপাসু মানুষদের জন্য ফরাসি ভাষা শেখাটা অনেক বেশি সুবিধাজনক। কারন ইউরোপের অনেক দেশ আছে যেখানে মানুষ ভালোভাবে ইংরেজি বুঝতে পারে না। তাদের সাথে যোগাযোগের ক্ষেত্রে ফরাসি ভাষা আপনাকে সাহায্য করবে। আবার আপনি যদি কানাডাতে ভ্রমন করতে যান সেক্ষেত্রে আপনার যদি ফরাসি ভাষায় কথা বলার দক্ষতা থাকে তাহলে ইমিগ্রেশনে আপনি বিশেষ সুবিধা পাবেন।</h5>
+
+            </div> 
+        </div>
+    
+    <!-- Testimonial End -->
+    
+    
+    
+      
+    {% endblock body %}

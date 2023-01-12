@@ -1,0 +1,11 @@
+{% extends "vid/video2.html" %}
+{% load embed_video_tags %}
+
+{% block body1 %}
+{% for video in videos %}
+  <h1>{{ video.description }}</h1>
+
+  <div class="d-flex justify-content-center "><iframe  width="800" height="500" src="{{ video.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+{% endfor %}
+{% endblock body1 %}

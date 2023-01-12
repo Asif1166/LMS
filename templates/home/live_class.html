@@ -1,0 +1,7 @@
+{% extends "layout/layout.html" %}
+{% load static %}
+
+{% block body %}
+  <h1>Hello {{ request.user.first_name }} {{ request.user.last_name }}</h1>
+  <h3>Welcome to our live class</h3>
+{% endblock body %}

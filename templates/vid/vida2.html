@@ -1,0 +1,20 @@
+{% extends "vid/video2.html" %}
+
+{% block body1 %}
+{% for video2 in videos2  %}
+  <h1>{{ video2.title }}</h1>
+
+  <div class="d-flex justify-content-center">
+    
+    
+    <h2>{{ video2.description }}</h2>
+    
+    
+    <video class="embed-responsive embed-responsive-16by9 w-100" controls="controls" src="{{ video2.video.url }}"></video>
+    
+  
+    
+    
+</div>
+{% endfor %}
+{% endblock body1 %}
